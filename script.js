@@ -18,14 +18,21 @@ function getHumanChoice(){
 }
 
 
-function playRound(humanChoice, computerChoice){
+function playGame(){
+    
+    
+    let humanScore = 0;
+    let computerScore = 0;
+    let counter = 0
+
+    function playRound(humanChoice, computerChoice){
     if (humanChoice === 'rock' && computerChoice === 'paper'){
-        // computerScore++;
+        computerScore++;
         console.log("Player lose! Paper beats rock!");
          
     }
     else if (humanChoice === 'rock' && computerChoice === 'scissors'){
-        // humanScore++;
+        humanScore++;
         console.log("Player win! Rock beats scissors!");
 
     }
@@ -37,49 +44,38 @@ function playRound(humanChoice, computerChoice){
         console.log("Draw");
     }
     else if (humanChoice === 'paper' && computerChoice === 'scissors'){
-        // computerScore++;
+        computerScore++;
         console.log("Player lose! scissors beats paper!");
     }
     else if (humanChoice === 'paper' && computerChoice === 'rock'){
-        // humanScore++;
+        humanScore++;
         console.log("Player win! paper beats rock!");
     }
 
 
     if (humanChoice === 'scissors' && computerChoice === 'paper'){
-        // humanScore++;
+        humanScore++;
         console.log("Player win! scissors beats paper!");
     }
     else if (humanChoice === 'scissors' && computerChoice === 'rock'){
-        // computerScore++;
+        computerScore++;
         console.log("Player lose! rock beats scissors!");
     }
     else if (humanChoice === 'scissors' && computerChoice === 'scissors'){
         console.log("Draw!");
     }
     
-}
 
+    }
 
+    for (let i = 0; i < 5; i++){
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        console.log(playRound(humanSelection, computerSelection));
+        
+    }
 
-
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-console.log(computerSelection);
-console.log(humanSelection);
-
-
-
-function playGame(){
-    playRound(humanSelection, computerSelection);
-
-    // setInterval(playGame, 1000)
-    
-    let humanScore = 0;
-    let computerScore = 0;
-    let counter = 0
-
+    console.log('Final score ' + ' player ' + humanScore + ' computer ' + computerScore );
     
 }
-playGame()
+console.log(playGame());
